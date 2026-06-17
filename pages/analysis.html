@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nova Análise</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:#0f172a;
+    color:white;
+}
+
+.header{
+    padding:30px 8%;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.header h1{font-size:32px;}
+.header p{color:#94a3b8;margin-top:8px;}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+.card{
+    background:#1e293b;
+    padding:30px;
+    border-radius:20px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.section{
+    background:#0f172a;
+    padding:25px;
+    border-radius:15px;
+}
+
+input,select{
+    width:100%;
+    padding:14px;
+    margin-top:8px;
+    border:none;
+    border-radius:10px;
+    background:#1e293b;
+    color:white;
+}
+
+.fluxo-box{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    margin-bottom:10px;
+}
+
+.remove-btn{
+    background:#ef4444;
+    border:none;
+    color:white;
+    padding:10px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.add-btn{
+    margin-top:10px;
+    padding:10px;
+    background:#334155;
+    border:none;
+    color:white;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.calc-btn{
+    width:100%;
+    margin-top:30px;
+    padding:18px;
+    background:#2563eb;
+    border:none;
+    border-radius:14px;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+@media(max-width:900px){
+    .grid{grid-template-columns:1fr;}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>Nova Análise</h1>
+    <p>Insira os dados do investimento</p>
+</div>
+
+<div class="container">
+
+<form class="card" id="investmentForm">
+
+<div class="grid">
+
+    <div class="section">
+
+        <h2>Empresa</h2>
+
+        <input id="empresa" placeholder="Nome da empresa">
+        <input id="nif" placeholder="NIF">
+
+        <h2 style="margin-top:20px;">Dados</h2>
+
+        <input id="investimento" placeholder="Investimento inicial" type="number">
+        <input id="taxa" placeholder="TMA (%)" type="number">
+
+    </div>
+
+    <div class="section">
+
+        <h2>Fluxos de Caixa</h2>
+
+        <div id="fluxosContainer">
+
+            <div class="fluxo-box">
+                <label>1</label>
+                <input class="fluxo" type="number">
+                <button type="button" class="remove-btn" onclick="remover(this)">❌</button>
+            </div>
+
+            <div class="fluxo-box">
+                <label>2</label>
+                <input class="fluxo" type="number">
+                <button type="button" class="remove-btn" onclick="remover(this)">❌</button>
+            </div>
+
+            <div class="fluxo-box">
+                <label>3</label>
+                <input class="fluxo" type="number">
+                <button type="button" class="remove-btn" onclick="remover(this)">❌</button>
+            </div>
+
+        </div>
+
+        <button type="button" class="add-btn" onclick="addFluxo()">+ Adicionar</button>
+
+    </div>
+
+</div>
+
+<button class="calc-btn" type="submit">
+📊 Calcular
+</button>
+
+</form>
+
+</div>
+
+<script src="../assets/js/app.js"></script>
+
+<script>
+let count = 3;
+
+function addFluxo(){
+    count++;
+    const c = document.getElementById("fluxosContainer");
+
+    const div = document.createElement("div");
+    div.className = "fluxo-box";
+
+    div.innerHTML = `
+        <label>${count}</label>
+        <input class="fluxo" type="number">
+        <button type="button" class="remove-btn" onclick="remover(this)">❌</button>
+    `;
+
+    c.appendChild(div);
+    renumerar();
+}
+
+function remover(btn){
+    btn.parentElement.remove();
+    renumerar();
+}
+
+function renumerar(){
+    const boxes = document.querySelectorAll(".fluxo-box");
+    boxes.forEach((b,i)=>{
+        b.querySelector("label").innerText = i+1;
+    });
+}
+</script>
+
+</body>
+</html>

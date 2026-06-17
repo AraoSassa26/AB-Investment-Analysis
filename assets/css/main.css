@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #0f172a;
+    color: #ffffff;
+}
+
+/* HEADER */
+.header {
+    text-align: center;
+    padding: 40px 20px;
+    background: #111827;
+    border-bottom: 1px solid #1f2937;
+}
+
+.header h1 {
+    font-size: 32px;
+}
+
+.header p {
+    color: #9ca3af;
+    margin-top: 8px;
+}
+
+/* HERO */
+.hero {
+    display: flex;
+    justify-content: center;
+    padding: 50px 20px;
+}
+
+/* BOX PRINCIPAL */
+.hero-box {
+    max-width: 750px;
+    background: #1f2937;
+    padding: 40px;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* FORM CARD */
+.form-card {
+    background: #1f2937;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    margin: 10px;
+}
+
+/* INPUTS */
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: none;
+    background: #111827;
+    color: #ffffff;
+    outline: none;
+}
+
+/* BUTTONS */
+.btn {
+    display: inline-block;
+    padding: 12px 18px;
+    margin-top: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    background: #374151;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #4b5563;
+}
+
+.primary {
+    background: #2563eb;
+}
+
+.primary:hover {
+    background: #1d4ed8;
+}
+
+.full-btn {
+    width: 100%;
+    text-align: center;
+}
+
+/* FEATURES (HOME PAGE) */
+.features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    padding: 40px;
+}
+
+.feature {
+    background: #1f2937;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+}
+
+/* RESULT BOX */
+.result-box {
+    background: #111827;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border-left: 4px solid #2563eb;
+}
+
+/* CONCLUSÃO */
+#conclusao {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #d1d5db;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: #111827;
+    color: #9ca3af;
+    margin-top: 40px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 900px) {
+    .features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-box {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .features {
+        grid-template-columns: 1fr;
+    }
+}

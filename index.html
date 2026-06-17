@@ -1,0 +1,356 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AB Investment Analysis</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:#0f172a;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 8%;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+    font-size:24px;
+    font-weight:700;
+}
+
+.logo span{
+    color:#3b82f6;
+}
+
+.nav-btn{
+    text-decoration:none;
+    background:#2563eb;
+    color:white;
+    padding:12px 22px;
+    border-radius:12px;
+    transition:.3s;
+}
+
+.nav-btn:hover{
+    transform:translateY(-2px);
+}
+
+/* HERO */
+
+.hero{
+    min-height:85vh;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 8%;
+    gap:60px;
+}
+
+.hero-left{
+    flex:1;
+}
+
+.badge{
+    display:inline-block;
+    background:#1e293b;
+    padding:10px 18px;
+    border-radius:50px;
+    margin-bottom:25px;
+    font-size:14px;
+}
+
+.hero h1{
+    font-size:58px;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:18px;
+    color:#cbd5e1;
+    max-width:650px;
+}
+
+.hero-btn{
+    display:inline-block;
+    margin-top:35px;
+    background:#2563eb;
+    color:white;
+    text-decoration:none;
+    padding:16px 32px;
+    border-radius:14px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.hero-btn:hover{
+    transform:translateY(-3px);
+}
+
+/* CARD DIREITA */
+
+.hero-right{
+    flex:1;
+    display:flex;
+    justify-content:center;
+}
+
+.dashboard-preview{
+    width:380px;
+    background:#1e293b;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+}
+
+.dashboard-preview h3{
+    margin-bottom:20px;
+}
+
+.indicator{
+    background:#0f172a;
+    padding:15px;
+    border-radius:12px;
+    margin-bottom:12px;
+}
+
+.indicator strong{
+    display:block;
+    margin-bottom:5px;
+}
+
+/* FEATURES */
+
+.features{
+    padding:90px 8%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:36px;
+    margin-bottom:50px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#1e293b;
+    padding:30px;
+    border-radius:18px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+}
+
+.card h3{
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#cbd5e1;
+}
+
+/* ABOUT */
+
+.about{
+    padding:90px 8%;
+    text-align:center;
+}
+
+.about p{
+    max-width:850px;
+    margin:auto;
+    margin-top:20px;
+    color:#cbd5e1;
+    line-height:1.8;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:50px 20px;
+    color:#94a3b8;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+/* RESPONSIVO */
+
+@media(max-width:900px){
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+        padding-top:50px;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .dashboard-preview{
+        width:100%;
+        max-width:400px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="logo">AB Investment</div>
+
+    <div class="links">
+        <a href="index.html">Home</a>
+        <a href="pages/analysis.html">Análise</a>
+        <a href="pages/balanco.html">Balanço</a>
+        <a href="pages/historico.html">Histórico</a>
+    </div>
+
+    <div class="user">
+        <span id="userName">Arão Bueia Bula  </span>
+    </div>
+</nav>
+
+<section class="hero">
+
+    <div class="hero-left">
+
+        <div class="badge">
+            Plataforma de Análise Financeira
+        </div>
+
+        <h1>
+            Transformando dados financeiros em decisões inteligentes.
+        </h1>
+
+        <p>
+            Calcule VPL, TIR, ROI e Payback de forma rápida, segura e profissional,
+            auxiliando na avaliação da viabilidade económica dos seus projetos.
+        </p>
+
+        <a href="pages/analysis.html" class="hero-btn">
+            Começar Agora
+        </a>
+
+    </div>
+
+    <div class="hero-right">
+
+        <div class="dashboard-preview">
+
+            <h3>Indicadores Disponíveis</h3>
+
+            <div class="indicator">
+                <strong>📈 VPL</strong>
+                Valor Presente Líquido
+            </div>
+
+            <div class="indicator">
+                <strong>📊 TIR</strong>
+                Taxa Interna de Retorno
+            </div>
+
+            <div class="indicator">
+                <strong>💰 ROI</strong>
+                Retorno Sobre Investimento
+            </div>
+
+            <div class="indicator">
+                <strong>⏱️ Payback</strong>
+                Tempo de Recuperação
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="features">
+
+    <h2 class="section-title">
+        Funcionalidades do Sistema
+    </h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>📈 Valor Presente Líquido</h3>
+            <p>Determina a rentabilidade real do investimento.</p>
+        </div>
+
+        <div class="card">
+            <h3>📊 Taxa Interna de Retorno</h3>
+            <p>Avalia a taxa de retorno esperada do projeto.</p>
+        </div>
+
+        <div class="card">
+            <h3>💰 ROI</h3>
+            <p>Mede o retorno obtido sobre o capital investido.</p>
+        </div>
+
+        <div class="card">
+            <h3>⏱️ Payback</h3>
+            <p>Indica o tempo necessário para recuperar o investimento.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="about">
+
+    <h2 class="section-title">
+        Sobre o Sistema
+    </h2>
+
+    <p>
+        O AB Investment Analysis é uma plataforma desenvolvida para apoiar estudantes,
+        analistas e investidores na avaliação da viabilidade económica de projetos,
+        utilizando indicadores financeiros amplamente reconhecidos no mercado.
+    </p>
+
+</section>
+
+<footer>
+
+    © 2026 Corporação Gênesis — AB Investment Analysis
+
+    <br><br>
+
+    POWERED BY SASSA CORPORATION
+
+</footer>
+
+</body>
+</html>
