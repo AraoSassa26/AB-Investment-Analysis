@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Histórico - AB Investment</title>
+
+<style>
+
+body{
+    font-family:Segoe UI;
+    background:#0b1220;
+    color:white;
+    margin:0;
+    padding:30px;
+}
+
+/* HEADER */
+.header{
+    margin-bottom:20px;
+}
+
+.header h1{
+    font-size:24px;
+}
+
+.header p{
+    color:#94a3b8;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:15px;
+}
+
+/* CARD */
+.card{
+    background:#111827;
+    padding:18px;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,0.06);
+    transition:.2s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+    border-color:#3b82f6;
+}
+
+.card h3{
+    margin-bottom:8px;
+    font-size:16px;
+}
+
+.card small{
+    color:#94a3b8;
+    display:block;
+    margin-bottom:10px;
+}
+
+/* KPI ROW */
+.kpis{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    margin-top:10px;
+    color:#cbd5e1;
+}
+
+/* BUTTONS */
+.actions{
+    margin-top:12px;
+    display:flex;
+    gap:10px;
+}
+
+.btn{
+    flex:1;
+    padding:8px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:12px;
+}
+
+.view{
+    background:#2563eb;
+    color:white;
+}
+
+.delete{
+    background:#ef4444;
+    color:white;
+}
+
+.empty{
+    text-align:center;
+    color:#94a3b8;
+    margin-top:40px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+    <h1>📊 Histórico de Análises</h1>
+   
+</div>
+
+<div id="container" class="grid"></div>
+
+<div id="empty" class="empty" style="display:none;">
+    Nenhuma análise encontrada.
+</div>
+
+<script>
+
+function loadHistory(){
+
+    let data = JSON.parse(localStorage.getItem("analises")) || [];
+
+    let container = document.getElementById("container");
+    let empty = document.getElementById("empty");
+
+    container.innerHTML = "";
+
+    if(data.length === 0){
+        empty.style.display = "block";
+        return;
+    }
+
+    empty.style.display = "none";
+
+    data.reverse().forEach((item, index)=>{
+
+        let card = document.createElement("div");
+        card.className = "card";
+
+        card.innerHTML = `
+            <h3>🏢 ${item.empresa}</h3>
+            <small>NIF: ${item.nif}</small>
+            <small>📅 ${item.data}</small>
+
+            <div class="kpis">
+                <span>VPL: ${formatKz(item.vpl)}</span>
+            </div>
+
+            <div class="kpis">
+                <span>ROI: ${item.roi.toFixed(2)}%</span>
+                <span>TIR: ${item.tir.toFixed(2)}%</span>
+            </div>
+
+            <div class="kpis">
+                <span>Payback: ${formatPayback(item.payback)}</span>
+            </div>
+
+            <div class="actions">
+                <button class="btn view" onclick="ver(${index})">Ver</button>
+                <button class="btn delete" onclick="apagar(${index})">Apagar</button>
+            </div>
+        `;
+
+        container.appendChild(card);
+
+    });
+}
+
+// FORMATADORES
+function formatKz(v){
+    return Number(v || 0).toLocaleString("pt-PT",{
+        minimumFractionDigits:2,
+        maximumFractionDigits:2
+    });
+}
+
+function formatPayback(p){
+    if(!p) return "N/A";
+
+    let anos = Math.floor(p);
+    let meses = Math.round((p - anos) * 12);
+
+    return `${anos}a ${meses}m`;
+}
+
+// APAGAR
+function apagar(i){
+
+    let data = JSON.parse(localStorage.getItem("analises")) || [];
+
+    data.reverse();
+    data.splice(i,1);
+    data.reverse();
+
+    localStorage.setItem("analises", JSON.stringify(data));
+
+    loadHistory();
+}
+
+// VER DETALHES (simples redirect futuro)
+function ver(i){
+    alert("Funcionalidade indisponivel");
+}
+
+loadHistory();
+
+</script>
+
+</body>
+</html>
