@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -9,61 +8,89 @@
 
 <style>
 
+/* =========================
+   RESET
+========================= */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
 }
 
 body{
-    font-family:'Segoe UI',sans-serif;
-    background:#0f172a;
+    background: radial-gradient(circle at top, #0f172a, #050816);
     color:#fff;
     overflow-x:hidden;
 }
 
-/* NAVBAR */
+/* =========================
+   NAVBAR GLASS
+========================= */
 
 .navbar{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:25px 8%;
+    padding:18px 8%;
+    position:sticky;
+    top:0;
+    backdrop-filter: blur(12px);
+    background:rgba(15,23,42,0.6);
     border-bottom:1px solid rgba(255,255,255,.08);
+    z-index:10;
 }
 
 .logo{
-    font-size:24px;
+    font-size:22px;
     font-weight:700;
+    letter-spacing:1px;
 }
 
 .logo span{
     color:#3b82f6;
+   
 }
-
-.nav-btn{
+footer span{ 
+    color: red;
+     background-color: black;
+}
+footer span:hover{ 
+    color: black;
+    background-color: red;
+}
+.links a{
+    margin:0 10px;
     text-decoration:none;
-    background:#2563eb;
-    color:white;
-    padding:12px 22px;
-    border-radius:12px;
+    color:#cbd5e1;
     transition:.3s;
+    font-size:14px;
 }
 
-.nav-btn:hover{
-    transform:translateY(-2px);
+.links a:hover{
+    color:#fff;
 }
 
-/* HERO */
+.user{
+    font-size:14px;
+    color:#94a3b8;
+}
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
-    min-height:85vh;
+    min-height:88vh;
     display:flex;
     justify-content:space-between;
     align-items:center;
     padding:0 8%;
-    gap:60px;
+    gap:50px;
 }
+
+/* LEFT */
 
 .hero-left{
     flex:1;
@@ -71,42 +98,47 @@ body{
 
 .badge{
     display:inline-block;
-    background:#1e293b;
-    padding:10px 18px;
+    background:rgba(59,130,246,0.15);
+    border:1px solid rgba(59,130,246,0.3);
+    padding:8px 16px;
     border-radius:50px;
-    margin-bottom:25px;
-    font-size:14px;
+    font-size:13px;
+    margin-bottom:20px;
+    color:#93c5fd;
 }
 
 .hero h1{
-    font-size:58px;
+    font-size:52px;
     line-height:1.1;
     margin-bottom:20px;
 }
 
 .hero p{
-    font-size:18px;
+    font-size:16px;
     color:#cbd5e1;
-    max-width:650px;
+    max-width:600px;
 }
+
+/* BUTTON */
 
 .hero-btn{
     display:inline-block;
-    margin-top:35px;
-    background:#2563eb;
+    margin-top:30px;
+    background:linear-gradient(135deg,#2563eb,#3b82f6);
     color:white;
     text-decoration:none;
-    padding:16px 32px;
+    padding:14px 28px;
     border-radius:14px;
     font-weight:600;
     transition:.3s;
+    box-shadow:0 10px 25px rgba(37,99,235,0.25);
 }
 
 .hero-btn:hover{
-    transform:translateY(-3px);
+    transform:translateY(-3px) scale(1.03);
 }
 
-/* CARD DIREITA */
+/* RIGHT */
 
 .hero-right{
     flex:1;
@@ -116,108 +148,126 @@ body{
 
 .dashboard-preview{
     width:380px;
-    background:#1e293b;
-    padding:30px;
+    background:rgba(30,41,59,0.8);
+    backdrop-filter: blur(10px);
+    padding:25px;
     border-radius:20px;
-    box-shadow:0 20px 50px rgba(0,0,0,.25);
+    border:1px solid rgba(255,255,255,0.08);
+    box-shadow:0 20px 60px rgba(0,0,0,0.4);
 }
 
 .dashboard-preview h3{
-    margin-bottom:20px;
+    margin-bottom:15px;
+    font-size:16px;
+    color:#93c5fd;
 }
 
 .indicator{
     background:#0f172a;
-    padding:15px;
+    padding:12px;
     border-radius:12px;
-    margin-bottom:12px;
+    margin-bottom:10px;
+    border:1px solid rgba(255,255,255,0.05);
+    transition:.2s;
 }
 
-.indicator strong{
-    display:block;
-    margin-bottom:5px;
+.indicator:hover{
+    transform:translateX(5px);
 }
 
-/* FEATURES */
+ footer img {
+     margin-right: 50px;
+    }
+
+/* =========================
+   FEATURES
+========================= */
 
 .features{
-    padding:90px 8%;
+    padding:80px 8%;
 }
 
 .section-title{
     text-align:center;
-    font-size:36px;
-    margin-bottom:50px;
+    font-size:34px;
+    margin-bottom:40px;
 }
 
 .cards{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
+    gap:20px;
 }
 
 .card{
-    background:#1e293b;
-    padding:30px;
-    border-radius:18px;
+    background:rgba(30,41,59,0.8);
+    padding:25px;
+    border-radius:16px;
+    border:1px solid rgba(255,255,255,0.06);
     transition:.3s;
 }
 
 .card:hover{
     transform:translateY(-6px);
+    border-color:#3b82f6;
 }
 
 .card h3{
-    margin-bottom:15px;
+    margin-bottom:10px;
 }
 
 .card p{
     color:#cbd5e1;
+    font-size:14px;
 }
 
-/* ABOUT */
+/* =========================
+   ABOUT
+========================= */
 
 .about{
-    padding:90px 8%;
+    padding:80px 8%;
     text-align:center;
 }
 
 .about p{
-    max-width:850px;
+    max-width:800px;
     margin:auto;
-    margin-top:20px;
+    margin-top:15px;
     color:#cbd5e1;
-    line-height:1.8;
+    line-height:1.7;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 footer{
     text-align:center;
-    padding:50px 20px;
+    padding:40px 20px;
     color:#94a3b8;
     border-top:1px solid rgba(255,255,255,.08);
 }
 
-/* RESPONSIVO */
+/* =========================
+   RESPONSIVO
+========================= */
 
 @media(max-width:900px){
 
     .hero{
         flex-direction:column;
         text-align:center;
-        padding-top:50px;
     }
 
     .hero h1{
-        font-size:42px;
+        font-size:38px;
     }
 
     .dashboard-preview{
         width:100%;
-        max-width:400px;
+        max-width:380px;
     }
-
 }
 
 </style>
@@ -227,18 +277,22 @@ footer{
 <body>
 
 <nav class="navbar">
-    <div class="logo">AB Investment</div>
+
+    <div class="logo">
+        AB <span>Investment Analysis</span>
+    </div>
 
     <div class="links">
         <a href="index.html">Home</a>
         <a href="pages/analysis.html">Análise</a>
         <a href="pages/balanco.html">Balanço</a>
-        <a href="pages/historico.html">Histórico</a>
+        <a href="pages/history.html">Histórico</a>
     </div>
 
     <div class="user">
-        <span id="userName">Arão Bueia Bula  </span>
+        👤 Arão Bueia Bula
     </div>
+
 </nav>
 
 <section class="hero">
@@ -246,20 +300,20 @@ footer{
     <div class="hero-left">
 
         <div class="badge">
-            Plataforma de Análise Financeira
+            Plataforma Financeira Inteligente
         </div>
 
         <h1>
-            Transformando dados financeiros em decisões inteligentes.
+            Decisões financeiras mais inteligentes em segundos.
         </h1>
 
         <p>
-            Calcule VPL, TIR, ROI e Payback de forma rápida, segura e profissional,
-            auxiliando na avaliação da viabilidade económica dos seus projetos.
+            Analisa VPL, TIR, ROI e Payback com precisão profissional,
+            transformando números em decisões estratégicas reais.
         </p>
 
         <a href="pages/analysis.html" class="hero-btn">
-            Começar Agora
+             Começar Agora
         </a>
 
     </div>
@@ -268,27 +322,12 @@ footer{
 
         <div class="dashboard-preview">
 
-            <h3>Indicadores Disponíveis</h3>
+            <h3>📊 Indicadores</h3>
 
-            <div class="indicator">
-                <strong>📈 VPL</strong>
-                Valor Presente Líquido
-            </div>
-
-            <div class="indicator">
-                <strong>📊 TIR</strong>
-                Taxa Interna de Retorno
-            </div>
-
-            <div class="indicator">
-                <strong>💰 ROI</strong>
-                Retorno Sobre Investimento
-            </div>
-
-            <div class="indicator">
-                <strong>⏱️ Payback</strong>
-                Tempo de Recuperação
-            </div>
+            <div class="indicator">📈 VPL - Valor Presente Líquido</div>
+            <div class="indicator">📊 TIR - Taxa Interna de Retorno</div>
+            <div class="indicator">💰 ROI - Retorno do Investimento</div>
+            <div class="indicator">⏱️ Payback - Tempo de Retorno</div>
 
         </div>
 
@@ -298,30 +337,28 @@ footer{
 
 <section class="features">
 
-    <h2 class="section-title">
-        Funcionalidades do Sistema
-    </h2>
+    <h2 class="section-title">Funcionalidades</h2>
 
     <div class="cards">
 
         <div class="card">
-            <h3>📈 Valor Presente Líquido</h3>
-            <p>Determina a rentabilidade real do investimento.</p>
+            <h3>📈 VPL</h3>
+            <p>Determina a viabilidade real do investimento.</p>
         </div>
 
         <div class="card">
-            <h3>📊 Taxa Interna de Retorno</h3>
-            <p>Avalia a taxa de retorno esperada do projeto.</p>
+            <h3>📊 TIR</h3>
+            <p>Mostra a taxa real de retorno do projeto.</p>
         </div>
 
         <div class="card">
             <h3>💰 ROI</h3>
-            <p>Mede o retorno obtido sobre o capital investido.</p>
+            <p>Analisa o retorno sobre o capital investido.</p>
         </div>
 
         <div class="card">
             <h3>⏱️ Payback</h3>
-            <p>Indica o tempo necessário para recuperar o investimento.</p>
+            <p>Calcula o tempo de recuperação do investimento.</p>
         </div>
 
     </div>
@@ -330,27 +367,54 @@ footer{
 
 <section class="about">
 
-    <h2 class="section-title">
-        Sobre o Sistema
-    </h2>
+    <h2 class="section-title">Sobre</h2>
 
     <p>
-        O AB Investment Analysis é uma plataforma desenvolvida para apoiar estudantes,
-        analistas e investidores na avaliação da viabilidade económica de projetos,
-        utilizando indicadores financeiros amplamente reconhecidos no mercado.
+        O AB Investment Analysis é uma plataforma moderna de análise financeira,
+        desenvolvida para apoiar decisões estratégicas em investimentos.
     </p>
 
 </section>
 
-<footer>
+<footer style="
+    text-align:center;
+    padding:50px 20px;
+    color:#94a3b8;
+    border-top:1px solid rgba(255,255,255,.08);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+">
 
-    © 2026 Corporação Gênesis — AB Investment Analysis
 
-    <br><br>
+    
+    <div style="display:flex; align-items:center; gap:10px;">
 
-    POWERED BY SASSA CORPORATION
+        <!-- LOGO DA ESCOLA -->
+        <img 
+            src="assets/img/images (1).png" 
+            alt="Logo da Escola"
+            style="
+                width:50px;
+                height:50px;
+                object-fit:contain;
+                border-radius:8px;
+                background:white;
+                padding:4px;
+            "
+        />
+
+        <div>
+            © 2026 Corporação Gênesis — AB Investment Analysis
+        </div>
+
+    </div>
+
+    <div style="font-size:12px; opacity:0.7;">
+        <span>POWERED BY SASSA CORPORATION</span>
+    </div>
 
 </footer>
-
 </body>
 </html>
