@@ -18,6 +18,10 @@ body{
     margin:0;
 }
 
+/* =========================
+   HEADER
+========================= */
+
 .title{
     font-size:22px;
     font-weight:bold;
@@ -25,7 +29,7 @@ body{
 }
 
 /* =========================
-   KPIs BANK STYLE
+   KPI BANK STYLE
 ========================= */
 
 .kpi-container{
@@ -58,23 +62,10 @@ body{
     margin:0;
 }
 
-/* 🟢 POSITIVO */
-.kpi.positive{
-    border-color:#22c55e;
-    background:rgba(34,197,94,0.08);
-}
-
-/* 🔴 NEGATIVO */
-.kpi.negative{
-    border-color:#ef4444;
-    background:rgba(239,68,68,0.08);
-}
-
-/* 🟡 NEUTRO */
-.kpi.neutral{
-    border-color:#f59e0b;
-    background:rgba(245,158,11,0.08);
-}
+/* STATES */
+.kpi.positive{ border-color:#22c55e; background:rgba(34,197,94,0.08); }
+.kpi.negative{ border-color:#ef4444; background:rgba(239,68,68,0.08); }
+.kpi.neutral{ border-color:#f59e0b; background:rgba(245,158,11,0.08); }
 
 /* =========================
    CONCLUSÃO
@@ -83,13 +74,14 @@ body{
 .conclusao{
     margin-top:10px;
     font-size:16px;
-    padding:10px;
+    padding:12px;
     border-left:4px solid #2563eb;
     background:#0b1220;
+    border-radius:8px;
 }
 
 /* =========================
-   CHARTS
+   CHART CARDS
 ========================= */
 
 .card{
@@ -97,10 +89,19 @@ body{
     padding:20px;
     border-radius:15px;
     margin-bottom:20px;
+    display:none;
+}
+
+.card.active{
+    display:block;
+}
+
+.card canvas{
+    height:320px !important;
 }
 
 /* =========================
-   BOTÃO
+   BUTTONS
 ========================= */
 
 .btn{
@@ -110,10 +111,19 @@ body{
     color:white;
     border-radius:10px;
     cursor:pointer;
+    margin-right:10px;
 }
 
 .btn:hover{
     background:#1d4ed8;
+}
+
+/* =========================
+   TOGGLE AREA
+========================= */
+
+.toggle-area{
+    margin-bottom:15px;
 }
 
 </style>
@@ -121,6 +131,7 @@ body{
 
 <body onload="mostrar()">
 
+<div class="title">📊 Resultados da Análise</div>
 
 <!-- KPIs -->
 <div class="kpi-container">
@@ -150,19 +161,44 @@ body{
 <!-- CONCLUSÃO -->
 <div class="conclusao" id="conclusao">A processar...</div>
 
-<!-- GRÁFICO 1 -->
-<div class="card">
+<br> 
+
+<br>
+
+<br>
+
+
+
+<!-- TOGGLE BUTTONS -->
+<div class="toggle-area">
+    <button class="btn" onclick="toggleChart('c1')">📊 Fluxo de Caixa</button>
+    <button class="btn" onclick="toggleChart('c2')">📈 Fluxo Acumulado</button>
+</div>
+
+<!-- CHART 1 -->
+<div class="card active" id="c1-card">
 <canvas id="c1"></canvas>
 </div>
 
-<!-- GRÁFICO 2 -->
-<div class="card">
+<!-- CHART 2 -->
+<div class="card active" id="c2-card">
 <canvas id="c2"></canvas>
 </div>
 
+<!-- ACTIONS -->
 <button class="btn" onclick="window.print()">📄 Exportar PDF</button>
 
 <script src="../assets/js/resultados.js"></script>
+
+<script>
+function toggleChart(id){
+
+    let el = document.getElementById(id + "-card");
+
+    el.classList.toggle("active");
+
+}
+</script>
 
 </body>
 </html>
